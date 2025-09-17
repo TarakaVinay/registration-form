@@ -1,31 +1,30 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Header } from "@/components/header"
-import { Sidebar } from "@/components/sidebar"
-import { HomePage } from "@/components/pages/home-page"
-// Update the import to match the actual export name from Registration-page.tsx
-import { Registrationpage } from "@/components/pages/Registration-page"
-import { DashboardPage } from "@/components/pages/dashboard-page"
+import { useState } from "react";
+import { Header } from "@/components/header";
+import { Sidebar } from "@/components/sidebar";
+import { HomePage } from "@/components/pages/home-page";
+// ✅ Correct import: match file name and export
+import RegistrationPage from "../components/pages/Registration-page";
+import { DashboardPage } from "@/components/pages/dashboard-page";
 
-type Page = "home" | "todolist" | "dashboard"
+type Page = "home" | "todolist" | "dashboard";
 
 export function AppLayout() {
-  const [currentPage, setCurrentPage] = useState<Page>("home")
+  const [currentPage, setCurrentPage] = useState<Page>("home");
 
   const renderPage = () => {
     switch (currentPage) {
       case "home":
-         return <HomePage /> 
+        return <HomePage />;
       case "todolist":
-        return <Registrationpage />
-        // return <TodoListPage />
+        return <RegistrationPage />;
       case "dashboard":
-        return <DashboardPage />
+        return <DashboardPage />;
       default:
-        return <HomePage />
+        return <HomePage />;
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -35,5 +34,5 @@ export function AppLayout() {
         <main className="flex-1 p-6">{renderPage()}</main>
       </div>
     </div>
-  )
+  );
 }
