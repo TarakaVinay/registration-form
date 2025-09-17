@@ -13,7 +13,7 @@ const router = express.Router();
 // ✅ Get all students
 router.get("/", getAllRegistrations);
 
-// ✅ Get student by hall ticket (for fetching marks)
+  // ✅ Get student by hall ticket (for fetching marks)
 router.get("/hallticket/:hall_ticket", getRegistrationByHallticketController);
 
 // ✅ Get single student by ID
